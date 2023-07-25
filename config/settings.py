@@ -33,7 +33,8 @@ ALLOWED_HOSTS = env_config('ALLOWED_HOSTS').split(',')
 # Application definition
 
 MY_APPS = [
-
+    'apps.courses',
+    'apps.contacts',
 ]
 
 THIRDS_PARTY_APPS = [
@@ -165,6 +166,8 @@ SPECTACULAR_SETTINGS = {
 
 #CORS
 CORS_ORIGIN_ALLOW_ALL = env_config('CORS_ORIGIN_ALLOW_ALL', cast=bool)
+
+TELEGRAM_BOT_TOKEN = env_config('TELEGRAM_BOT_TOKEN')
 
 with contextlib.suppress(ImportError):
     from .local_settings import *

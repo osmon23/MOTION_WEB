@@ -28,6 +28,7 @@ swagger_urlpatterns = [
 
 api_v1_urlpatterns = [
     path('schema/', include(swagger_urlpatterns)),
+    path('contacts/', include('apps.contacts.urls')),
 ]
 
 urlpatterns = [

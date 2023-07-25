@@ -1,4 +1,5 @@
 from rest_framework import generics
+from rest_framework import permissions
 
 from .models import Contact, Application
 from .serializers import ContactSerializer, ApplicationSerializer
@@ -12,3 +13,4 @@ class ContactListView(generics.ListAPIView):
 class ApplicationCreateView(generics.CreateAPIView):
     queryset = Application.objects.all().order_by('first_name')
     serializer_class = ApplicationSerializer
+    permission_classes = [permissions.AllowAny]

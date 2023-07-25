@@ -11,7 +11,7 @@ class TagSerializer(serializers.ModelSerializer):
 class PostDescriptionSerializer(serializers.ModelSerializer):
     class Meta:
         model = PostDescription
-        fields = ('descripton',)
+        fields = ('description',)
 
 
 class PostMediaSerializer(serializers.ModelSerializer):

@@ -1,6 +1,11 @@
 from django.contrib import admin
 
-from .models import Course, Duration, Mentor, CoursesImage, TrialLesson
+from .models import Course, Duration, Mentor, CoursesImage, TrialLesson, CoursesStack
+
+
+class CoursesStackInline(admin.TabularInline):
+    model = CoursesStack
+    extra = 1
 
 
 class CoursesImageInline(admin.TabularInline):
@@ -24,6 +29,7 @@ class CorseAdmin(admin.ModelAdmin):
         CoursesImageInline,
         DurationInline,
         MentorInline,
+        CoursesStackInline,
     ]
     save_on_top = True
     list_display = ('name', 'why_we', 'description')
@@ -48,3 +54,9 @@ class MentorAdmin(admin.ModelAdmin):
 class DurationAdmin(admin.ModelAdmin):
     save_on_top = True
     list_display = ('duration',)
+
+
+@admin.register(CoursesStack)
+class CoursesStackAdmin(admin.ModelAdmin):
+    list_display = ('stack',)
+    list_display_links = ('stack',)

@@ -22,6 +22,25 @@ class Course(models.Model):
         verbose_name_plural = _('Courses')
 
 
+class CoursesStack(models.Model):
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        related_name='courses_stacks',
+    )
+    stack = models.CharField(
+        _('Stack'),
+        max_length=100,
+    )
+
+    def __str__(self):
+        return self.stack
+
+    class Meta:
+        verbose_name = _('Stack')
+        verbose_name_plural = _('Stacks')
+
+
 class Duration(models.Model):
     course = models.ForeignKey(
         Course,

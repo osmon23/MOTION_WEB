@@ -79,7 +79,7 @@ class Mentor(models.Model):
     )
     photo = models.ImageField(
         _('Photo'),
-        upload_to='mentors',
+        upload_to='mentors/',
     )
 
     def __str__(self):
@@ -98,7 +98,7 @@ class CoursesImage(models.Model):
     )
     image = models.ImageField(
         _('Image'),
-        upload_to='courses',
+        upload_to='courses/',
     )
 
     def __str__(self):

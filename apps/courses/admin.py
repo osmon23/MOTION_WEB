@@ -24,7 +24,7 @@ class MentorInline(admin.TabularInline):
 
 
 @admin.register(Course)
-class CorseAdmin(admin.ModelAdmin):
+class CourseAdmin(admin.ModelAdmin):
     inlines = [
         CoursesImageInline,
         DurationInline,
@@ -32,31 +32,31 @@ class CorseAdmin(admin.ModelAdmin):
         CoursesStackInline,
     ]
     save_on_top = True
-    list_display = ('name', 'why_we', 'description')
+    list_display = ('id', 'name', 'why_we', 'description')
     list_display_links = ('name',)
 
 
 @admin.register(TrialLesson)
 class TrialLessonAdmin(admin.ModelAdmin):
     save_on_top = True
-    list_display = ('name', 'date', 'time', 'description')
+    list_display = ('id', 'name', 'date', 'time', 'description')
     list_display_links = ('name',)
 
 
 @admin.register(Mentor)
 class MentorAdmin(admin.ModelAdmin):
     save_on_top = True
-    list_display = ('first_name', 'last_name', 'description', 'photo')
+    list_display = ('id', 'first_name', 'last_name', 'description', 'photo')
     list_display_links = ('first_name', 'last_name')
 
 
 @admin.register(Duration)
 class DurationAdmin(admin.ModelAdmin):
     save_on_top = True
-    list_display = ('duration',)
+    list_display = ('id', 'duration',)
 
 
 @admin.register(CoursesStack)
 class CoursesStackAdmin(admin.ModelAdmin):
-    list_display = ('stack',)
+    list_display = ('id', 'stack',)
     list_display_links = ('stack',)

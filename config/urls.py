@@ -32,6 +32,8 @@ api_v1_urlpatterns = [
     path('schema/', include(swagger_urlpatterns)),
     path('courses/', include('apps.courses.urls')),
     path('contacts/', include('apps.contacts.urls')),
+    path('blog/', include('apps.blog.urls')),
+
 ]
 
 urlpatterns = [

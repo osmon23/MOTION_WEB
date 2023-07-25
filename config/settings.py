@@ -35,6 +35,7 @@ ALLOWED_HOSTS = env_config('ALLOWED_HOSTS').split(',')
 MY_APPS = [
     'apps.courses',
     'apps.contacts',
+    'apps.blog',
 ]
 
 THIRDS_PARTY_APPS = [

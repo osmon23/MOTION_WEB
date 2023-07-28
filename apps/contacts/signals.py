@@ -24,7 +24,7 @@ def send_application_to_telegram(sender, instance, created, **kwargs):
         chat_id = None
 
         if updates and len(updates) > 0:
-            last_update = updates[-1]
+            last_update = updates[0]
 
             chat_id = last_update.message.chat.id
 

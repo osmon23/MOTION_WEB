@@ -21,11 +21,12 @@ def send_application_to_telegram(sender, instance, created, **kwargs):
                   f"Email: {instance.email}\n" \
                   f"Дата: {datetime.date.today()}"
 
-        chat_id = None
+        chats_id = []
 
-        if updates and len(updates) > 0:
-            last_update = updates[-1]
+        for up in updates:
+            chats_id.append(up.message.chat.id)
+            print(up.message.chat.first_name)
 
-            chat_id = last_update.message.chat.id
-
-        bot.send_message(chat_id, message)
+        for chat_id in set(chats_id):
+            bot.send_message(chat_id, message)
+            print(chat_id)

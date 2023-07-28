@@ -33,9 +33,12 @@ class TrialLessonSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.ModelSerializer):
+    images = CoursesImageSerializer(many=True, read_only=True)
+    courses_stacks = CoursesStackSerializer(many=True, read_only=True)
+
     class Meta:
         model = Course
-        fields = ('id', 'name', 'why_we', 'description')
+        fields = ('id', 'name', 'why_we', 'description', 'images', 'courses_stacks')
 
 
 class CourseDetailSerializer(serializers.ModelSerializer):

@@ -1,10 +1,15 @@
 from django.contrib import admin
 
-from .models import Course, Duration, Mentor, CoursesImage, TrialLesson, CoursesStack
+from .models import Course, Duration, Mentor, CoursesImage, TrialLesson, CoursesStack, CourseFormat
 
 
 class CoursesStackInline(admin.TabularInline):
     model = CoursesStack
+    extra = 1
+
+
+class CourseFormatInline(admin.TabularInline):
+    model = CourseFormat
     extra = 1
 
 
@@ -30,6 +35,7 @@ class CourseAdmin(admin.ModelAdmin):
         DurationInline,
         MentorInline,
         CoursesStackInline,
+        CourseFormatInline,
     ]
     save_on_top = True
     list_display = ('id', 'name', 'why_we', 'description')

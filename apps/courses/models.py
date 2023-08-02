@@ -90,6 +90,28 @@ class Mentor(models.Model):
         verbose_name_plural = _('Mentors')
 
 
+class CourseFormat(models.Model):
+    format = models.CharField(
+        _('Format'),
+        max_length=255,
+    )
+    description = models.TextField(
+        _('Description'),
+    )
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        related_name='format',
+    )
+
+    def __str__(self):
+        return self.format
+
+    class Meta:
+        verbose_name = _('Format')
+        verbose_name_plural = _('Formats')
+
+
 class CoursesImage(models.Model):
     course = models.ForeignKey(
         Course,

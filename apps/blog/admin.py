@@ -26,7 +26,7 @@ class PostAdmin(admin.ModelAdmin):
         PostMediaInline,
     ]
     save_on_top = True
-    list_display = ('id', 'title', 'created_at')
+    list_display = ('id', 'title', 'created_at', 'type')
     list_display_links = ('title',)
 
 

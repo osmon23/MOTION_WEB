@@ -1,14 +1,24 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from .constants import TypeChoices
+
 
 class Post(models.Model):
     title = models.CharField(
         _('title'),
-        max_length=100)
+        max_length=100,
+    )
     created_at = models.DateTimeField(
         _('created at'),
-        auto_now_add=True)
+        auto_now_add=True,
+    )
+    type = models.CharField(
+        _('Type'),
+        max_length=1,
+        choices=TypeChoices.choices,
+        default=TypeChoices.BLOG,
+    )
 
     def __str__(self):
         return self.title

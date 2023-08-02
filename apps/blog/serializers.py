@@ -27,7 +27,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ('id', 'title', 'created_at', 'tags', 'descriptions', 'media')
+        fields = ('id', 'title', 'created_at', 'type', 'tags', 'descriptions', 'media')
 
 
 class ReviewsSerializer(serializers.ModelSerializer):

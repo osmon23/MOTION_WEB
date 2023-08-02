@@ -74,3 +74,20 @@ class Reviews(models.Model):
     file = models.FileField(
         _('file'),
         upload_to='reviews/')
+
+
+class Projects(models.Model):
+    image = models.ImageField(
+        _('Image'),
+        upload_to='projects/'
+    )
+    url = models.URLField(
+        _('URL'),
+    )
+
+    def __str__(self):
+        return self.url
+
+    class Meta:
+        verbose_name = _('Project')
+        verbose_name_plural = _('Projects')

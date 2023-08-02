@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Post, Tag, PostDescription, PostMedia, Reviews
+from .models import Post, Tag, PostDescription, PostMedia, Reviews, Projects
 
 
 class TagInline(admin.TabularInline):
@@ -52,3 +52,10 @@ class PostMediaAdmin(admin.ModelAdmin):
 class ReviewsAdmin(admin.ModelAdmin):
     list_display = ('id',)
     list_display_links = ('id',)
+
+
+@admin.register(Projects)
+class ProjectsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'image', 'url')
+    list_display_links = ('id', 'image', 'url')
+    search_fields = ('id', 'image', 'utl')

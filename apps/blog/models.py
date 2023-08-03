@@ -13,12 +13,6 @@ class Post(models.Model):
         _('created at'),
         auto_now_add=True,
     )
-    type = models.CharField(
-        _('Type'),
-        max_length=1,
-        choices=TypeChoices.choices,
-        default=TypeChoices.BLOG,
-    )
 
     def __str__(self):
         return self.title

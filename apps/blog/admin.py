@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Post, Tag, PostDescription, PostMedia, Reviews, Projects
+from .models import Post, Tag, PostDescription, PostMedia, Reviews, Projects, News, BestArticles
 
 
 class TagInline(admin.TabularInline):
@@ -26,7 +26,7 @@ class PostAdmin(admin.ModelAdmin):
         PostMediaInline,
     ]
     save_on_top = True
-    list_display = ('id', 'title', 'created_at', 'type')
+    list_display = ('id', 'title', 'created_at')
     list_display_links = ('title',)
 
 
@@ -59,3 +59,27 @@ class ProjectsAdmin(admin.ModelAdmin):
     list_display = ('id', 'image', 'url')
     list_display_links = ('id', 'image', 'url')
     search_fields = ('id', 'image', 'utl')
+
+
+@admin.register(News)
+class NewsAdmin(admin.ModelAdmin):
+    inlines = [
+        TagInline,
+        PostDescriptionInline,
+        PostMediaInline,
+    ]
+    save_on_top = True
+    list_display = ('id', 'title', 'created_at')
+    list_display_links = ('title',)
+
+
+@admin.register(BestArticles)
+class BestArticlesAdmin(admin.ModelAdmin):
+    inlines = [
+        TagInline,
+        PostDescriptionInline,
+        PostMediaInline,
+    ]
+    save_on_top = True
+    list_display = ('id', 'title', 'created_at')
+    list_display_links = ('title',)

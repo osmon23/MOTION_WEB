@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post, Tag, PostDescription, PostMedia, Reviews, Projects
+from .models import Post, Tag, PostDescription, PostMedia, Reviews, Projects, News, BestArticles
 
 
 class TagSerializer(serializers.ModelSerializer):
@@ -27,6 +27,18 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
+        fields = ('id', 'title', 'created_at', 'tags', 'descriptions', 'media')
+
+
+class NewsSerializer(PostSerializer):
+    class Meta:
+        model = News
+        fields = ('id', 'title', 'created_at', 'tags', 'descriptions', 'media')
+
+
+class BestArticlesSerializer(PostSerializer):
+    class Meta:
+        model = BestArticles
         fields = ('id', 'title', 'created_at', 'tags', 'descriptions', 'media')
 
 

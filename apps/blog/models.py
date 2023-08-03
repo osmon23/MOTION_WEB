@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from .constants import TypeChoices
-
 
 class Post(models.Model):
     title = models.CharField(
@@ -95,3 +93,21 @@ class Projects(models.Model):
     class Meta:
         verbose_name = _('Project')
         verbose_name_plural = _('Projects')
+
+
+class News(Post):
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('News')
+        verbose_name_plural = _('News')
+
+
+class BestArticles(Post):
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('Best Article')
+        verbose_name_plural = _('Best Articles')

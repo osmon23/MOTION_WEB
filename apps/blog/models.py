@@ -111,3 +111,51 @@ class BestArticles(Post):
     class Meta:
         verbose_name = _('Best Article')
         verbose_name_plural = _('Best Articles')
+
+
+class About(models.Model):
+    title = models.CharField(
+        _('title'),
+        max_length=100,
+    )
+    description = models.TextField(
+        _('description'),
+    )
+    graduated = models.CharField(
+        _('graduated'),
+        max_length=50,
+    )
+    years = models.CharField(
+        _('years'),
+        max_length=50,
+    )
+    mentors = models.CharField(
+        _('mentors'),
+        max_length=50,
+    )
+    work_offers = models.CharField(
+        _('work offers'),
+        max_length=50,
+    )
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('About')
+        verbose_name_plural = _('About')
+
+
+class AboutUsGallery(models.Model):
+    image = models.ImageField(
+        _('image'),
+        null=True,
+        blank=True,
+        upload_to='about_us/',
+    )
+    file = models.FileField(
+        _('file'),
+        null=True,
+        blank=True,
+        upload_to='about_us/'
+    )

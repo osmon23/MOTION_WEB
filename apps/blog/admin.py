@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Post, Tag, PostDescription, PostMedia, Reviews, Projects, News, BestArticles
+from .models import Post, Tag, PostDescription, PostMedia, Reviews, Projects, News, BestArticles, About, AboutUsGallery
 
 
 class TagInline(admin.TabularInline):
@@ -83,3 +83,15 @@ class BestArticlesAdmin(admin.ModelAdmin):
     save_on_top = True
     list_display = ('id', 'title', 'created_at')
     list_display_links = ('title',)
+
+
+@admin.register(About)
+class AboutAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'description', 'years', 'work_offers', 'graduated', 'mentors')
+    list_display_links = ('title', 'description')
+
+
+@admin.register(AboutUsGallery)
+class AboutUsGalleryAdmin(admin.ModelAdmin):
+    list_display = ('id',)
+    list_display_links = ('id',)

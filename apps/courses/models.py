@@ -152,3 +152,65 @@ class TrialLesson(models.Model):
     class Meta:
         verbose_name = _('Trial lesson')
         verbose_name_plural = _('Trial lessons')
+
+
+class ForWho(models.Model):
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        related_name='for_who',
+    )
+    for_who = models.TextField(
+        _('For who'),
+    )
+
+    def __str__(self):
+        return self.for_who
+
+    class Meta:
+        verbose_name = _('For who')
+        verbose_name_plural = _('For who')
+
+
+class WhatGive(models.Model):
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        related_name='what_give',
+    )
+    reason = models.CharField(
+        _('What give'),
+        max_length=100,
+    )
+    info = models.TextField(
+        _('Info'),
+    )
+
+    def __str__(self):
+        return self.reason
+
+    class Meta:
+        verbose_name = _('What give')
+        verbose_name_plural = _('What give')
+
+
+class Program(models.Model):
+    course = models.ForeignKey(
+        Course,
+        on_delete=models.CASCADE,
+        related_name='program',
+    )
+    title = models.CharField(
+        _('title'),
+        max_length=100,
+    )
+    description = models.TextField(
+        _('Description'),
+    )
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = _('Program')
+        verbose_name_plural = _('Program')

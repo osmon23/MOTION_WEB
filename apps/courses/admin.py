@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import Course, Duration, Mentor, CoursesImage, TrialLesson, CoursesStack, CourseFormat
+from .models import Course, Duration, Mentor, CoursesImage, TrialLesson, CoursesStack, CourseFormat, ForWho, WhatGive, \
+    Program
 
 
 class CoursesStackInline(admin.TabularInline):
@@ -28,6 +29,21 @@ class MentorInline(admin.TabularInline):
     extra = 1
 
 
+class ForWhoInline(admin.TabularInline):
+    model = ForWho
+    extra = 1
+
+
+class WhatGiveInline(admin.TabularInline):
+    model = WhatGive
+    extra = 1
+
+
+class ProgramInline(admin.TabularInline):
+    model = Program
+    extra = 1
+
+
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
     inlines = [
@@ -36,6 +52,9 @@ class CourseAdmin(admin.ModelAdmin):
         MentorInline,
         CoursesStackInline,
         CourseFormatInline,
+        ForWhoInline,
+        WhatGiveInline,
+        ProgramInline,
     ]
     save_on_top = True
     list_display = ('id', 'name', 'why_we', 'description')
@@ -66,3 +85,27 @@ class DurationAdmin(admin.ModelAdmin):
 class CoursesStackAdmin(admin.ModelAdmin):
     list_display = ('id', 'stack',)
     list_display_links = ('stack',)
+
+
+@admin.register(CourseFormat)
+class CourseFormatAdmin(admin.ModelAdmin):
+    list_display = ('id', 'format',)
+    list_display_links = ('format',)
+
+
+@admin.register(ForWho)
+class ForWhoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'for_who',)
+    list_display_links = ('for_who',)
+
+
+@admin.register(WhatGive)
+class WhatGiveAdmin(admin.ModelAdmin):
+    list_display = ('id', 'reason', 'info')
+    list_display_links = ('reason',)
+
+
+@admin.register(Program)
+class ProgramAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'description')
+    list_display_links = ('title',)

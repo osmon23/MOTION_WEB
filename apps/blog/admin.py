@@ -1,14 +1,16 @@
 from django.contrib import admin
 
+from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
+
 from .models import Post, Tag, PostDescription, PostMedia, Reviews, Projects, News, BestArticles, About, AboutUsGallery
 
 
-class TagInline(admin.TabularInline):
+class TagInline(TranslationTabularInline):
     model = Tag
     extra = 1
 
 
-class PostDescriptionInline(admin.TabularInline):
+class PostDescriptionInline(TranslationTabularInline):
     model = PostDescription
     extra = 1
 
@@ -19,7 +21,7 @@ class PostMediaInline(admin.TabularInline):
 
 
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(TranslationAdmin):
     inlines = [
         TagInline,
         PostDescriptionInline,
@@ -31,13 +33,13 @@ class PostAdmin(admin.ModelAdmin):
 
 
 @admin.register(Tag)
-class TagAdmin(admin.ModelAdmin):
+class TagAdmin(TranslationAdmin):
     list_display = ('id', 'name', 'posts')
     list_display_links = ('name',)
 
 
 @admin.register(PostDescription)
-class PostDescriptionAdmin(admin.ModelAdmin):
+class PostDescriptionAdmin(TranslationAdmin):
     list_display = ('id', 'description', 'post')
     list_display_links = ('description',)
 
@@ -62,31 +64,31 @@ class ProjectsAdmin(admin.ModelAdmin):
 
 
 @admin.register(News)
-class NewsAdmin(admin.ModelAdmin):
+class NewsAdmin(TranslationAdmin):
     inlines = [
         TagInline,
         PostDescriptionInline,
         PostMediaInline,
     ]
     save_on_top = True
-    list_display = ('id', 'title', 'created_at')
-    list_display_links = ('title',)
+    list_display = ('id', 'news_title', 'news_created_at')
+    list_display_links = ('news_title',)
 
 
 @admin.register(BestArticles)
-class BestArticlesAdmin(admin.ModelAdmin):
+class BestArticlesAdmin(TranslationAdmin):
     inlines = [
         TagInline,
         PostDescriptionInline,
         PostMediaInline,
     ]
     save_on_top = True
-    list_display = ('id', 'title', 'created_at')
-    list_display_links = ('title',)
+    list_display = ('id', 'best_title', 'best_created_at')
+    list_display_links = ('best_title',)
 
 
 @admin.register(About)
-class AboutAdmin(admin.ModelAdmin):
+class AboutAdmin(TranslationAdmin):
     list_display = ('id', 'title', 'description', 'years', 'work_offers', 'graduated', 'mentors')
     list_display_links = ('title', 'description')
 

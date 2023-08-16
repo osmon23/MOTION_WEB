@@ -27,6 +27,7 @@ class CoursesStack(models.Model):
         Course,
         on_delete=models.CASCADE,
         related_name='courses_stacks',
+        verbose_name=_('Course'),
     )
     stack = models.CharField(
         _('Stack'),
@@ -46,6 +47,7 @@ class Duration(models.Model):
         Course,
         on_delete=models.CASCADE,
         related_name='durations',
+        verbose_name=_('Duration'),
     )
     duration = models.CharField(
         _('Duration'),
@@ -65,6 +67,7 @@ class Mentor(models.Model):
         Course,
         on_delete=models.CASCADE,
         related_name='mentors',
+        verbose_name=_('Course'),
     )
     first_name = models.CharField(
         _('First name'),
@@ -102,6 +105,7 @@ class CourseFormat(models.Model):
         Course,
         on_delete=models.CASCADE,
         related_name='format',
+        verbose_name=_('Course'),
     )
 
     def __str__(self):
@@ -117,6 +121,7 @@ class CoursesImage(models.Model):
         Course,
         on_delete=models.CASCADE,
         related_name='images',
+        verbose_name=_('Course'),
     )
     image = models.ImageField(
         _('Image'),
@@ -150,8 +155,8 @@ class TrialLesson(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = _('Trial lesson')
-        verbose_name_plural = _('Trial lessons')
+        verbose_name = _('Trial Lesson')
+        verbose_name_plural = _('Trial Lessons')
 
 
 class ForWho(models.Model):
@@ -159,6 +164,7 @@ class ForWho(models.Model):
         Course,
         on_delete=models.CASCADE,
         related_name='for_who',
+        verbose_name=_('Course'),
     )
     for_who = models.TextField(
         _('For who'),
@@ -168,8 +174,8 @@ class ForWho(models.Model):
         return self.for_who
 
     class Meta:
-        verbose_name = _('For who')
-        verbose_name_plural = _('For who')
+        verbose_name = _('For Who')
+        verbose_name_plural = _('For Who')
 
 
 class WhatGive(models.Model):
@@ -177,6 +183,7 @@ class WhatGive(models.Model):
         Course,
         on_delete=models.CASCADE,
         related_name='what_give',
+        verbose_name=_('Course'),
     )
     reason = models.CharField(
         _('What give'),
@@ -190,8 +197,8 @@ class WhatGive(models.Model):
         return self.reason
 
     class Meta:
-        verbose_name = _('What give')
-        verbose_name_plural = _('What give')
+        verbose_name = _('What Give')
+        verbose_name_plural = _('What Give')
 
 
 class Program(models.Model):
@@ -199,9 +206,10 @@ class Program(models.Model):
         Course,
         on_delete=models.CASCADE,
         related_name='program',
+        verbose_name=_('Course'),
     )
     title = models.CharField(
-        _('title'),
+        _('Title'),
         max_length=100,
     )
     description = models.TextField(
@@ -213,4 +221,4 @@ class Program(models.Model):
 
     class Meta:
         verbose_name = _('Program')
-        verbose_name_plural = _('Program')
+        verbose_name_plural = _('Programs')

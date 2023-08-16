@@ -1,15 +1,16 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 
 from .models import Course, Duration, Mentor, CoursesImage, TrialLesson, CoursesStack, CourseFormat, ForWho, WhatGive, \
     Program
 
 
-class CoursesStackInline(admin.TabularInline):
+class CoursesStackInline(TranslationTabularInline):
     model = CoursesStack
     extra = 1
 
 
-class CourseFormatInline(admin.TabularInline):
+class CourseFormatInline(TranslationTabularInline):
     model = CourseFormat
     extra = 1
 
@@ -19,33 +20,33 @@ class CoursesImageInline(admin.TabularInline):
     extra = 1
 
 
-class DurationInline(admin.TabularInline):
+class DurationInline(TranslationTabularInline):
     model = Duration
     extra = 1
 
 
-class MentorInline(admin.TabularInline):
+class MentorInline(TranslationTabularInline):
     model = Mentor
     extra = 1
 
 
-class ForWhoInline(admin.TabularInline):
+class ForWhoInline(TranslationTabularInline):
     model = ForWho
     extra = 1
 
 
-class WhatGiveInline(admin.TabularInline):
+class WhatGiveInline(TranslationTabularInline):
     model = WhatGive
     extra = 1
 
 
-class ProgramInline(admin.TabularInline):
+class ProgramInline(TranslationTabularInline):
     model = Program
     extra = 1
 
 
 @admin.register(Course)
-class CourseAdmin(admin.ModelAdmin):
+class CourseAdmin(TranslationAdmin):
     inlines = [
         CoursesImageInline,
         DurationInline,
@@ -62,50 +63,50 @@ class CourseAdmin(admin.ModelAdmin):
 
 
 @admin.register(TrialLesson)
-class TrialLessonAdmin(admin.ModelAdmin):
+class TrialLessonAdmin(TranslationAdmin):
     save_on_top = True
     list_display = ('id', 'name', 'date', 'time', 'description')
     list_display_links = ('name',)
 
 
 @admin.register(Mentor)
-class MentorAdmin(admin.ModelAdmin):
+class MentorAdmin(TranslationAdmin):
     save_on_top = True
     list_display = ('id', 'first_name', 'last_name', 'description', 'photo')
     list_display_links = ('first_name', 'last_name')
 
 
 @admin.register(Duration)
-class DurationAdmin(admin.ModelAdmin):
+class DurationAdmin(TranslationAdmin):
     save_on_top = True
     list_display = ('id', 'duration',)
 
 
 @admin.register(CoursesStack)
-class CoursesStackAdmin(admin.ModelAdmin):
+class CoursesStackAdmin(TranslationAdmin):
     list_display = ('id', 'stack',)
     list_display_links = ('stack',)
 
 
 @admin.register(CourseFormat)
-class CourseFormatAdmin(admin.ModelAdmin):
+class CourseFormatAdmin(TranslationAdmin):
     list_display = ('id', 'format',)
     list_display_links = ('format',)
 
 
 @admin.register(ForWho)
-class ForWhoAdmin(admin.ModelAdmin):
+class ForWhoAdmin(TranslationAdmin):
     list_display = ('id', 'for_who',)
     list_display_links = ('for_who',)
 
 
 @admin.register(WhatGive)
-class WhatGiveAdmin(admin.ModelAdmin):
+class WhatGiveAdmin(TranslationAdmin):
     list_display = ('id', 'reason', 'info')
     list_display_links = ('reason',)
 
 
 @admin.register(Program)
-class ProgramAdmin(admin.ModelAdmin):
+class ProgramAdmin(TranslationAdmin):
     list_display = ('id', 'title', 'description')
     list_display_links = ('title',)

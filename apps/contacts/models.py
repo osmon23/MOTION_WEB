@@ -15,6 +15,8 @@ class Contact(models.Model):
     phone_number = models.CharField(
         _('Phone Number'),
         max_length=100,
+        null=True,
+        blank=True,
     )
 
     def __str__(self):

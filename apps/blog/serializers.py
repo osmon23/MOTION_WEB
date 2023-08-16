@@ -33,13 +33,13 @@ class PostSerializer(serializers.ModelSerializer):
 class NewsSerializer(PostSerializer):
     class Meta:
         model = News
-        fields = ('id', 'title', 'created_at', 'tags', 'descriptions', 'media')
+        fields = ('id', 'news_title', 'news_created_at', 'tags', 'descriptions', 'media')
 
 
 class BestArticlesSerializer(PostSerializer):
     class Meta:
         model = BestArticles
-        fields = ('id', 'title', 'created_at', 'tags', 'descriptions', 'media')
+        fields = ('id', 'best_title', 'best_created_at', 'tags', 'descriptions', 'media')
 
 
 class ReviewsSerializer(serializers.ModelSerializer):

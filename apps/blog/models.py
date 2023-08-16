@@ -4,11 +4,11 @@ from django.utils.translation import gettext_lazy as _
 
 class Post(models.Model):
     title = models.CharField(
-        _('title'),
+        _('Title'),
         max_length=100,
     )
     created_at = models.DateTimeField(
-        _('created at'),
+        _('Created at'),
         auto_now_add=True,
     )
 
@@ -16,66 +16,82 @@ class Post(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = _('post')
-        verbose_name_plural = _('posts')
+        verbose_name = _('Post')
+        verbose_name_plural = _('Posts')
         ordering = ['-created_at']
 
 
 class Tag(models.Model):
     name = models.CharField(
-        _('name'),
-        max_length=50)
+        _('Name'),
+        max_length=50,
+    )
     posts = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
-        related_name='tags')
+        related_name='tags',
+        verbose_name=_('Posts'),
+    )
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = _('tag')
-        verbose_name_plural = _('tags')
+        verbose_name = _('Tag')
+        verbose_name_plural = _('Tags')
 
 
 class PostDescription(models.Model):
     description = models.TextField(
-        _('description'),
+        _('Description'),
         max_length=1000)
     post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
-        related_name='descriptions')
+        related_name='descriptions',
+        verbose_name=_('Post'),
+    )
 
     def __str__(self):
         return self.post.title
 
     class Meta:
-        verbose_name = _('description')
-        verbose_name_plural = _('descriptions')
+        verbose_name = _('Description')
+        verbose_name_plural = _('Descriptions')
 
 
 class PostMedia(models.Model):
     media = models.FileField(
-        _('media'),
-        upload_to='post_media/')
+        _('Media'),
+        upload_to='post_media/'
+    )
     post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
-        related_name='media')
+        related_name='media',
+        verbose_name=_('Post'),
+    )
 
     def __str__(self):
         return self.post.title
 
     class Meta:
-        verbose_name = _('media')
-        verbose_name_plural = _('media')
+        verbose_name = _('Media')
+        verbose_name_plural = _('Media')
 
 
 class Reviews(models.Model):
     file = models.FileField(
-        _('file'),
-        upload_to='reviews/')
+        _('File'),
+        upload_to='reviews/',
+    )
+
+    def __str__(self):
+        return self
+    
+    class Meta:
+        verbose_name = _('Review')
+        verbose_name_plural = _('Reviews')
 
 
 class Projects(models.Model):
@@ -96,8 +112,17 @@ class Projects(models.Model):
 
 
 class News(Post):
+    news_title = models.CharField(
+        _('Title'),
+        max_length=255,
+    )
+    news_created_at = models.DateTimeField(
+        _('Created at'),
+        auto_now_add=True,
+    )
+
     def __str__(self):
-        return self.title
+        return self.news_title
 
     class Meta:
         verbose_name = _('News')
@@ -105,8 +130,17 @@ class News(Post):
 
 
 class BestArticles(Post):
+    best_title = models.CharField(
+        _('Title'),
+        max_length=255,
+    )
+    best_created_at = models.DateTimeField(
+        _('Created at'),
+        auto_now_add=True,
+    )
+
     def __str__(self):
-        return self.title
+        return self.best_title
 
     class Meta:
         verbose_name = _('Best Article')
@@ -115,26 +149,26 @@ class BestArticles(Post):
 
 class About(models.Model):
     title = models.CharField(
-        _('title'),
+        _('Title'),
         max_length=100,
     )
     description = models.TextField(
-        _('description'),
+        _('Description'),
     )
     graduated = models.CharField(
-        _('graduated'),
+        _('Graduated'),
         max_length=50,
     )
     years = models.CharField(
-        _('years'),
+        _('Years'),
         max_length=50,
     )
     mentors = models.CharField(
-        _('mentors'),
+        _('Mentors'),
         max_length=50,
     )
     work_offers = models.CharField(
-        _('work offers'),
+        _('Work offers'),
         max_length=50,
     )
 
@@ -148,14 +182,21 @@ class About(models.Model):
 
 class AboutUsGallery(models.Model):
     image = models.ImageField(
-        _('image'),
+        _('Image'),
         null=True,
         blank=True,
         upload_to='about_us/',
     )
     file = models.FileField(
-        _('file'),
+        _('File'),
         null=True,
         blank=True,
         upload_to='about_us/'
     )
+
+    def __str__(self):
+        return self
+    
+    class Meta:
+        verbose_name = _('About us gallery')
+        verbose_name_plural = _('About us gallery')

@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 RUN apt-get update && apt-get install -y gettext
 RUN python manage.py compilemessages
 # Запускает команду makemigrations для создания файлов миграции на основе изменений в моделях
-RUN python manage.py makemigrations
+# RUN python manage.py makemigrations

@@ -85,9 +85,6 @@ class Reviews(models.Model):
         _('File'),
         upload_to='reviews/',
     )
-
-    def __str__(self):
-        return self
     
     class Meta:
         verbose_name = _('Review')
@@ -193,9 +190,6 @@ class AboutUsGallery(models.Model):
         blank=True,
         upload_to='about_us/'
     )
-
-    def __str__(self):
-        return self
     
     class Meta:
         verbose_name = _('About us gallery')

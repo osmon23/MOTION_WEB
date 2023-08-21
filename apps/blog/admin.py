@@ -5,12 +5,12 @@ from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 from .models import Post, Tag, PostDescription, PostMedia, Reviews, Projects, News, BestArticles, About, AboutUsGallery
 
 
-class TagInline(TranslationTabularInline):
+class TagInline(admin.TabularInline):
     model = Tag
     extra = 1
 
 
-class PostDescriptionInline(TranslationTabularInline):
+class PostDescriptionInline(admin.TabularInline):
     model = PostDescription
     extra = 1
 
@@ -21,7 +21,7 @@ class PostMediaInline(admin.TabularInline):
 
 
 @admin.register(Post)
-class PostAdmin(TranslationAdmin):
+class PostAdmin(admin.ModelAdmin):
     inlines = [
         TagInline,
         PostDescriptionInline,
@@ -33,13 +33,13 @@ class PostAdmin(TranslationAdmin):
 
 
 @admin.register(Tag)
-class TagAdmin(TranslationAdmin):
+class TagAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'posts')
     list_display_links = ('name',)
 
 
 @admin.register(PostDescription)
-class PostDescriptionAdmin(TranslationAdmin):
+class PostDescriptionAdmin(admin.ModelAdmin):
     list_display = ('id', 'description', 'post')
     list_display_links = ('description',)
 
@@ -64,7 +64,7 @@ class ProjectsAdmin(admin.ModelAdmin):
 
 
 @admin.register(News)
-class NewsAdmin(TranslationAdmin):
+class NewsAdmin(admin.ModelAdmin):
     inlines = [
         TagInline,
         PostDescriptionInline,
@@ -76,7 +76,7 @@ class NewsAdmin(TranslationAdmin):
 
 
 @admin.register(BestArticles)
-class BestArticlesAdmin(TranslationAdmin):
+class BestArticlesAdmin(admin.ModelAdmin):
     inlines = [
         TagInline,
         PostDescriptionInline,
@@ -88,7 +88,7 @@ class BestArticlesAdmin(TranslationAdmin):
 
 
 @admin.register(About)
-class AboutAdmin(TranslationAdmin):
+class AboutAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'description', 'years', 'work_offers', 'graduated', 'mentors')
     list_display_links = ('title', 'description')
 

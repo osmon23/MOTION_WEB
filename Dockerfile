@@ -8,5 +8,6 @@ WORKDIR /app
 ADD . /app
 # Запускает команду pip install для всех библиотек, перечисленных в requirements.txt
 RUN pip install -r requirements.txt
+RUN python manage.py compilemessages
 # Запускает команду makemigrations для создания файлов миграции на основе изменений в моделях
 RUN python manage.py makemigrations

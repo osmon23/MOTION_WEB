@@ -10,3 +10,4 @@ class ContactsConfig(AppConfig):
 
     def ready(self):
         import apps.contacts.signals
+        import apps.contacts.telegram_bot

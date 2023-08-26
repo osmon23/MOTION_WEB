@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Contact, Application
+from .models import Contact, Application, Message
 
 
 @admin.register(Contact)
@@ -46,4 +46,24 @@ class ApplicationAdmin(admin.ModelAdmin):
         'first_name',
         'phone_number',
         'email',
+    )
+
+
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'chat_id',
+    )
+    list_display_links = (
+        'chat_id',
+    )
+    search_fields = (
+        'chat_id',
+    )
+    list_filter = (
+        'chat_id',
+    )
+    readonly_fields = (
+        'chat_id',
     )

@@ -48,3 +48,19 @@ class Application(models.Model):
     class Meta:
         verbose_name = _('Application')
         verbose_name_plural = _('Applications')
+
+
+class Message(models.Model):
+    chat_id = models.CharField(
+        _('Chat ID'),
+        max_length=100,
+        null=True,
+        blank=True,
+    )
+
+    def __str__(self) -> str:
+        return super().__str__()
+    
+    class Meta:
+        verbose_name = _('Message')
+        verbose_name_plural = _('Messages')

@@ -51,15 +51,27 @@ class Application(models.Model):
 
 
 class Message(models.Model):
+    name = models.CharField(
+        _('Name'),
+        max_length=100,
+        null=True,
+        blank=True,
+    )
     chat_id = models.CharField(
         _('Chat ID'),
         max_length=100,
         null=True,
         blank=True,
     )
+    subscribed = models.BooleanField(
+        _('Subscribed'),
+        default=True,
+        null=True,
+        blank=True,
+    )
 
-    def __str__(self) -> str:
-        return super().__str__()
+    def __str__(self):
+        return self.name
     
     class Meta:
         verbose_name = _('Message')

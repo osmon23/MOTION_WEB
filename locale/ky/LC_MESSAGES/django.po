@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-16 20:40+0600\n"
+"POT-Creation-Date: 2023-08-29 22:46+0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,12 +26,12 @@ msgstr "Блог"
 msgid "Blogs"
 msgstr "Блогтор"
 
-#: apps/blog/models.py:7 apps/blog/models.py:116 apps/blog/models.py:134
-#: apps/blog/models.py:152 apps/courses/models.py:212
+#: apps/blog/models.py:7 apps/blog/models.py:113 apps/blog/models.py:131
+#: apps/blog/models.py:149 apps/courses/models.py:212
 msgid "Title"
 msgstr "Аталышы"
 
-#: apps/blog/models.py:11 apps/blog/models.py:120 apps/blog/models.py:138
+#: apps/blog/models.py:11 apps/blog/models.py:117 apps/blog/models.py:135
 msgid "Created at"
 msgstr "Түзүлдү"
 
@@ -43,8 +43,8 @@ msgstr "Пост"
 msgid "Posts"
 msgstr "Посттор"
 
-#: apps/blog/models.py:26 apps/contacts/models.py:7 apps/courses/models.py:7
-#: apps/courses/models.py:141
+#: apps/blog/models.py:26 apps/contacts/models.py:7 apps/contacts/models.py:55
+#: apps/courses/models.py:7 apps/courses/models.py:141
 msgid "Name"
 msgstr "Аталышы"
 
@@ -56,7 +56,7 @@ msgstr "Тег"
 msgid "Tags"
 msgstr "Тегтер"
 
-#: apps/blog/models.py:46 apps/blog/models.py:59 apps/blog/models.py:156
+#: apps/blog/models.py:46 apps/blog/models.py:59 apps/blog/models.py:153
 #: apps/courses/models.py:14 apps/courses/models.py:81
 #: apps/courses/models.py:102 apps/courses/models.py:151
 #: apps/courses/models.py:216
@@ -71,67 +71,67 @@ msgstr "Баяндоолор"
 msgid "Media"
 msgstr "Медиа"
 
-#: apps/blog/models.py:85 apps/blog/models.py:191
+#: apps/blog/models.py:85 apps/blog/models.py:188
 msgid "File"
 msgstr "Файл"
 
-#: apps/blog/models.py:93
+#: apps/blog/models.py:90
 msgid "Review"
 msgstr "Сын пикир"
 
-#: apps/blog/models.py:94
+#: apps/blog/models.py:91
 msgid "Reviews"
 msgstr "Сын пикирлер"
 
-#: apps/blog/models.py:99 apps/blog/models.py:185 apps/courses/models.py:127
+#: apps/blog/models.py:96 apps/blog/models.py:182 apps/courses/models.py:127
 msgid "Image"
 msgstr "Сүрөт"
 
-#: apps/blog/models.py:103 apps/contacts/models.py:11
+#: apps/blog/models.py:100 apps/contacts/models.py:11
 msgid "URL"
 msgstr "URL"
 
-#: apps/blog/models.py:110
+#: apps/blog/models.py:107
 msgid "Project"
 msgstr "Проект"
 
-#: apps/blog/models.py:111
+#: apps/blog/models.py:108
 msgid "Projects"
 msgstr "Проекттер"
 
-#: apps/blog/models.py:128 apps/blog/models.py:129
+#: apps/blog/models.py:125 apps/blog/models.py:126
 msgid "News"
 msgstr "Жаңылыктар"
 
-#: apps/blog/models.py:146
+#: apps/blog/models.py:143
 msgid "Best Article"
 msgstr "Мыкты макала"
 
-#: apps/blog/models.py:147
+#: apps/blog/models.py:144
 msgid "Best Articles"
 msgstr "Мыкты макалалар"
 
-#: apps/blog/models.py:159
+#: apps/blog/models.py:156
 msgid "Graduated"
 msgstr "Бүтүштү"
 
-#: apps/blog/models.py:163
+#: apps/blog/models.py:160
 msgid "Years"
 msgstr "Жылдар"
 
-#: apps/blog/models.py:167 apps/courses/models.py:93
+#: apps/blog/models.py:164 apps/courses/models.py:93
 msgid "Mentors"
 msgstr "Менторлор"
 
-#: apps/blog/models.py:171
+#: apps/blog/models.py:168
 msgid "Work offers"
 msgstr "Жумушка орнотулгандар"
 
-#: apps/blog/models.py:179 apps/blog/models.py:180
+#: apps/blog/models.py:176 apps/blog/models.py:177
 msgid "About"
 msgstr "Биз тууралу"
 
-#: apps/blog/models.py:201 apps/blog/models.py:202
+#: apps/blog/models.py:195 apps/blog/models.py:196
 msgid "About us gallery"
 msgstr "Галерея"
 
@@ -161,6 +161,22 @@ msgstr "Билдирүү"
 
 #: apps/contacts/models.py:50
 msgid "Applications"
+msgstr "Билдирүүлөр"
+
+#: apps/contacts/models.py:61
+msgid "Chat ID"
+msgstr "Чат ID"
+
+#: apps/contacts/models.py:67
+msgid "Subscribed"
+msgstr "Катталуу"
+
+#: apps/contacts/models.py:77
+msgid "Message"
+msgstr "Билдирүү"
+
+#: apps/contacts/models.py:78
+msgid "Messages"
 msgstr "Билдирүүлөр"
 
 #: apps/courses/apps.py:8 apps/courses/models.py:21 apps/courses/models.py:30

@@ -53,17 +53,26 @@ class ApplicationAdmin(admin.ModelAdmin):
 class MessageAdmin(admin.ModelAdmin):
     list_display = (
         'id',
+        'name',
         'chat_id',
+        'subscribed',
     )
     list_display_links = (
+        'name',
         'chat_id',
     )
     search_fields = (
+        'name',
         'chat_id',
+        'subscribed',
     )
     list_filter = (
+        'name',
         'chat_id',
+        'subscribed',
     )
     readonly_fields = (
+        'id',
+        'name',
         'chat_id',
     )

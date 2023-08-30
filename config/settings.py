@@ -190,5 +190,22 @@ CORS_ORIGIN_ALLOW_ALL = env_config('CORS_ORIGIN_ALLOW_ALL', cast=bool)
 
 TELEGRAM_BOT_TOKEN = env_config('TELEGRAM_BOT_TOKEN')
 
+#Redis
+REDIS_HOST = env_config('REDIS_HOST', default='localhost')
+REDIS_PORT = env_config('REDIS_PORT', default=6379, cast=int)
+
+# Celery
+CELERY_BROKER_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/0"
+CELERY_RESULT_BACKEND = f"redis://{REDIS_HOST}:{REDIS_PORT}/0"
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [(REDIS_HOST, REDIS_PORT)],
+        },
+    },
+}
+
 with contextlib.suppress(ImportError):
     from .local_settings import *

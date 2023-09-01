@@ -12,7 +12,7 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'update_database': {
         'task': 'apps.contacts.tasks.update_database',
-        'schedule': crontab(hour=0, minute=0),
+        'schedule':  crontab(minute='*/30'),
         'kwargs': {},
     }
 }

@@ -27,6 +27,12 @@ services:
     networks:
       - my-network
 
+  worker:
+    build: .
+    command: celery -A config worker --loglevel=info && celery -A config beat --loglevel=info
+    depends_on:
+      - redis
+
 volumes:
   postgres_data:
 
